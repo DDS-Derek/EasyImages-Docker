@@ -19,14 +19,12 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push image
         run: |
-          # 拼接镜像 id，这个镜像 id 就是在使用 docker 镜像时 pull 后面的名字。
           IMAGE_ID=ddsderek/$IMAGE_NAME
-
-          VERSION=${{ steps.set-version.outputs.version }}
-
           echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
+          echo VERSION=${{ secrets.VERSION }}
           # 设置镜像 id 和版本号
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+          docker tag $IMAGE_NAME $IMAGE_ID:${{ secrets.VERSION }}
+          docker tag $IMAGE_NAME $IMAGE_ID:latest
           # 进行 push
-          docker push $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:${{ secrets.VERSION }}
+          docker push $IMAGE_ID:latest
