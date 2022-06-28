@@ -1,0 +1,11 @@
+FROM devcto/nginx-php:8.0
+
+RUN chown -R www:www /data/wwwroot & \
+rm -rf /app/entrypoint.sh & rm -rf /usr/local/php/etc/php.ini
+COPY ./html /data/wwwroot
+COPY start.sh /app
+COPY php.ini /usr/local/php/etc/
+COPY entrypoint.sh /app
+COPY /mv /
+RUN chmod +x /app/entrypoint.sh && \
+chmod +x /app/start.sh

@@ -1,0 +1,10 @@
+<?php
+$guestConfig=Array
+	(
+	'guest'=>Array
+		(
+		'password'=>'084e0343a0486ff05530df6c705c8bb4',
+		'expired'=>1966793308,
+		'add_time'=>1651433308
+		)
+	);
