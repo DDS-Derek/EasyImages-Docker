@@ -22,17 +22,7 @@ jobs:
           # 拼接镜像 id，这个镜像 id 就是在使用 docker 镜像时 pull 后面的名字。
           IMAGE_ID=ddsderek/$IMAGE_NAME
 
-          # 将所有的大写字母转为小写
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-
-          # 从 GitHub.ref 中取出版本
           VERSION=${{ steps.set-version.outputs.version }}
-
-          # 从 tag 名字中替换 v 字符
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-
-          # Use Docker `latest` tag convention
-          [ "$VERSION" == "master" ] && VERSION=latest
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
