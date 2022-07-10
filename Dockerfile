@@ -1,6 +1,6 @@
 FROM ddsderek/foundations:Ubuntu20.04-nginx1.16.1-php7.4.20-nostart
 
-ENV TAG=2.6.5
+ENV TAG=2.6.6
 
 COPY start.sh /
 
