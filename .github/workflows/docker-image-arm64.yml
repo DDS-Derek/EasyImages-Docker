@@ -37,4 +37,4 @@ jobs:
             linux/arm64
           push: true
           tags: |
-            ddsderek/easyimage:${{ secrets.VERSION }}
+            ddsderek/easyimage:${{ secrets.VERSION }}-arm64

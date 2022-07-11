@@ -37,4 +37,4 @@ jobs:
             linux/arm64
           push: true
           tags: |
-            ddsderek/easyimage:latest
+            ddsderek/easyimage:latest-arm64
