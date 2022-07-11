@@ -1,4 +1,4 @@
-name: 构建EasyImage镜像
+name: 构建EasyImage镜像-latest
 on:
   workflow_dispatch:
 env:
@@ -32,10 +32,9 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: Dockerfile
+          file: Dockerfile-arm64
           platforms: |
-            linux/amd64
             linux/arm64
           push: true
           tags: |
-            ddsderek/easyimage:${{ secrets.VERSION }}
+            ddsderek/easyimage:latest
