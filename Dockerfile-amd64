@@ -2,7 +2,7 @@ FROM ddsderek/foundations:Ubuntu20.04-nginx1.16.1-php7.4.20-nostart
 
 ENV TAG=2.6.6
 
-COPY start.sh /
+COPY start-amd64.sh /
 
 WORKDIR /opt
 
@@ -18,8 +18,8 @@ RUN apt-get update && \
     apt-get remove -y wget zip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    chmod 755 /start.sh
+    chmod 755 /start-amd64.sh
 
 WORKDIR /app/web
 
-CMD [ "/start.sh" ]
+CMD [ "/start-amd64.sh" ]
