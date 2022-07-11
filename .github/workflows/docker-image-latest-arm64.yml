@@ -1,4 +1,4 @@
-name: 构建EasyImage镜像-latest
+name: 构建EasyImage镜像-latest-arm64
 on:
   workflow_dispatch:
 env:
