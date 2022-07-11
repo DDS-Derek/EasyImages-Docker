@@ -31,7 +31,7 @@ jobs:
         name: Buildx
         uses: docker/build-push-action@v3
         with:
-          context: docker
+          context: .
           file: Dockerfile
           platforms: |
             linux/amd64
