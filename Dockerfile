@@ -1,4 +1,4 @@
-FROM ddsderek/foundations:Ubuntu20.04-nginx1.16.1-php7.4.20-nostart
+FROM ddsderek/foundations:Debain-nginx1.18.0-php7.4-nostart
 
 ENV TAG=2.6.6
 
