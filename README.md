@@ -1,6 +1,5 @@
 # 本项目是icret/EasyImages2.0的分支项目，Docker版本的EasyImage
 
-### 中文 | [English](https://github.com/DDSRem/easyimage/blob/master/README-English.md)
 ## 项目介绍
 https://github.com/icret/EasyImages2.0
 ## 下载
@@ -18,7 +17,7 @@ docker run -itd \
   -v /root/data/docker_data/easyimage/i:/app/web/i \
   ddsderek/easyimage:latest
 ```
-docker-cli-arm64
+docker-cli-linux/arm/v6 | linux/arm/v7 | linux/arm64/v8
 
 ```bash
 docker run -itd \
@@ -26,7 +25,7 @@ docker run -itd \
   -p 8080:80 \
   -v /root/data/docker_data/easyimage/config:/app/web/config \
   -v /root/data/docker_data/easyimage/i:/app/web/i \
-  ddsderek/easyimage:latest-arm64
+  ddsderek/easyimage:latest-other
 ```
 
 docker-compose-amd64
@@ -44,13 +43,13 @@ services:
       - '/root/data/docker_data/easyimage/i:/app/web/i'
     restart: unless-stopped
 ```
-docker-compose-arm64
+docker-compose-linux/arm/v6 | linux/arm/v7 | linux/arm64/v8
 
 ```bash
 version: '3.3'
 services:
   easyimage:
-    image: ddsderek/easyimage:latest-arm64
+    image: ddsderek/easyimage:latest-other
     container_name: easyimage
     ports:
       - '8080:80'
@@ -77,7 +76,7 @@ docker run -itd \
 docker exec -it easyimage rm -rf /app/web/install
 ```
 
-docker-cli-arm64
+docker-cli-linux/arm/v6 | linux/arm/v7 | linux/arm64/v8
 
 ```
 docker stop easyimage
@@ -88,7 +87,7 @@ docker run -itd \
   -p 8080:80 \
   -v /root/data/docker_data/easyimage/config:/app/web/config \
   -v /root/data/docker_data/easyimage/i:/app/web/i \
-  ddsderek/easyimage:latest-arm64
+  ddsderek/easyimage:latest-other
 docker exec -it easyimage rm -rf /app/web/install
 ```
 
@@ -102,6 +101,7 @@ docker exec -it easyimage rm -rf /app/web/install
 
 ## 版本更新
 
+- 2.6.6.6 **正式版** 增加linux/arm/v6，linux/arm/v7，linux/arm64/v8镜像
 - 2.6.6.5 **正式版** 分离amd64和arm64镜像
 - 2.6.6.2 **正式版** 支持arm
 - 2.6.5.3 **正式版** 更改PHP最大上传: 512M 更改POST最大上传: 512M 更改Nginx上传限制: 512M
