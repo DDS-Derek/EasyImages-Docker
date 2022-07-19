@@ -18,8 +18,8 @@ RUN apt-get update && \
     apt-get remove -y wget zip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    chmod 755 /start-arm64.sh
+    chmod 755 /start-other.sh
 
 WORKDIR /app/web
 
-CMD [ "/start-arm64.sh" ]
+CMD [ "/start-other.sh" ]
