@@ -101,7 +101,7 @@ docker exec -it easyimage rm -rf /app/web/install
 
 ## 版本更新
 
-- 2.6.6.6 **正式版** 增加linux/arm/v6，linux/arm/v7，linux/arm64/v8镜像
+- 2.6.6.6 **正式版** 增加linux/arm/v6，linux/arm/v7，linux/arm64/v8，linux/s390x镜像
 - 2.6.6.5 **正式版** 分离amd64和arm64镜像
 - 2.6.6.2 **正式版** 支持arm
 - 2.6.5.3 **正式版** 更改PHP最大上传: 512M 更改POST最大上传: 512M 更改Nginx上传限制: 512M
