@@ -17,7 +17,7 @@ docker run -itd \
   -v /root/data/docker_data/easyimage/i:/app/web/i \
   ddsderek/easyimage:latest
 ```
-docker-cli-linux/arm/v6 | linux/arm/v7 | linux/arm64/v8
+docker-cli-linux/arm/v6 | linux/arm/v7 | linux/arm64/v8 | linux/s390x | linux/386 | linux/ppc64le
 
 ```bash
 docker run -itd \
@@ -43,7 +43,7 @@ services:
       - '/root/data/docker_data/easyimage/i:/app/web/i'
     restart: unless-stopped
 ```
-docker-compose-linux/arm/v6 | linux/arm/v7 | linux/arm64/v8
+docker-compose-linux/arm/v6 | linux/arm/v7 | linux/arm64/v8 | linux/s390x | linux/386 | linux/ppc64le
 
 ```bash
 version: '3.3'
@@ -76,7 +76,7 @@ docker run -itd \
 docker exec -it easyimage rm -rf /app/web/install
 ```
 
-docker-cli-linux/arm/v6 | linux/arm/v7 | linux/arm64/v8
+docker-cli-linux/arm/v6 | linux/arm/v7 | linux/arm64/v8 | linux/s390x | linux/386 | linux/ppc64le
 
 ```
 docker stop easyimage
@@ -101,6 +101,7 @@ docker exec -it easyimage rm -rf /app/web/install
 
 ## 版本更新
 
+- 2.6.6.7 **正式版** 增加linux/ppc64le，linux/386镜像
 - 2.6.6.6 **正式版** 增加linux/arm/v6，linux/arm/v7，linux/arm64/v8，linux/s390x镜像
 - 2.6.6.5 **正式版** 分离amd64和arm64镜像
 - 2.6.6.2 **正式版** 支持arm
