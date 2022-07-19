@@ -1,9 +1,6 @@
 name: 构建EasyImage镜像-latest-amd64
 on:
   workflow_dispatch:
-env:
-  # 设置 docker 镜像名
-  IMAGE_NAME: easyimage
 jobs:
   push:
     runs-on: ubuntu-latest

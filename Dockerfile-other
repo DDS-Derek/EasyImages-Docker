@@ -2,7 +2,7 @@ FROM ddsderek/foundations:Debain-nginx1.18.0-php7.4-nostart
 
 ENV TAG=2.6.6
 
-COPY start-arm64.sh /
+COPY start-other.sh /
 
 WORKDIR /opt
 

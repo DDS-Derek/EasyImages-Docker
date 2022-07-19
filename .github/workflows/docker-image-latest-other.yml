@@ -1,9 +1,6 @@
-name: 构建EasyImage镜像-latest-arm64
+name: 构建EasyImage镜像-latest-other
 on:
   workflow_dispatch:
-env:
-  # 设置 docker 镜像名
-  IMAGE_NAME: easyimage
 jobs:
   push:
     runs-on: ubuntu-latest
@@ -32,9 +29,11 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: Dockerfile-arm64
+          file: Dockerfile-other
           platforms: |
-            linux/arm64
+            linux/arm/v6
+            linux/arm/v7
+            linux/arm64/v8
           push: true
           tags: |
-            ddsderek/easyimage:latest-arm64
+            ddsderek/easyimage:latest-other
