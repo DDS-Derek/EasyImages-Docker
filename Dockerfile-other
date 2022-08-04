@@ -6,7 +6,7 @@ ADD ./shell /shell
 
 WORKDIR /opt
 
-RUN wget https://github.com/icret/EasyImages2.0/archive/refs/tags/${TAG}.zip && \
+RUN wget --no-check-certificate https://github.com/icret/EasyImages2.0/archive/refs/tags/${TAG}.zip && \
     unzip ${TAG}.zip && \
     mv /opt/EasyImages2.0-${TAG} /opt/web && \
     cp -r /opt/web /app && \
