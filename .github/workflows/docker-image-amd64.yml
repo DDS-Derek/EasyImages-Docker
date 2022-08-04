@@ -35,3 +35,15 @@ jobs:
           push: true
           tags: |
             ddsderek/easyimage:${{ secrets.VERSION }}
+
+      - 
+        name: Buildx
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile-amd64
+          platforms: |
+            linux/amd64
+          push: true
+          tags: |
+            ddsderek/easyimage:latest

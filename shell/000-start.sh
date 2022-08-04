@@ -8,7 +8,7 @@ fi
 
 # 设置PUID PGID
 echo -e "\033[34m设置PUID PGID... \033[0m"
-sh /shell/011-adduser.sh
+bash /shell/011-adduser.sh
 
 # 安装
 echo -e "\033[34m安装... \033[0m"
@@ -20,4 +20,4 @@ bash /shell/030-permission.sh
 
 # 启动
 echo -e "\033[34m启动 \033[0m"
-sh /shell/040-start.sh
+bash /shell/040-start.sh
