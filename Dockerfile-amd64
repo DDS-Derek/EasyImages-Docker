@@ -1,14 +1,12 @@
-FROM ddsderek/foundations:Ubuntu20.04-nginx1.16.1-php7.4.20-nostart
+FROM ddsderek/foundations:Ubuntu20.04-nginx1.16.1-php7.4.20
 
 ENV TAG=2.6.6
 
-COPY start-amd64.sh /
+ADD ./shell /shell
 
 WORKDIR /opt
 
-RUN apt-get update && \
-    apt-get install -y wget zip && \
-    wget https://github.com/icret/EasyImages2.0/archive/refs/tags/${TAG}.zip && \
+RUN wget https://github.com/icret/EasyImages2.0/archive/refs/tags/${TAG}.zip && \
     unzip ${TAG}.zip && \
     mv /opt/EasyImages2.0-${TAG} /opt/web && \
     cp -r /opt/web /app && \
@@ -18,8 +16,6 @@ RUN apt-get update && \
     apt-get remove -y wget zip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    chmod 755 /start-amd64.sh
+    chmod -R 755 /shell
 
 WORKDIR /app/web
-
-CMD [ "/start-amd64.sh" ]
