@@ -13,16 +13,22 @@ docker-cli-amd64
 docker run -itd \
   --name easyimage \
   -p 8080:80 \
+  -e TZ=Asia/Shanghai \
+  -e PUID=1000 \
+  -e PGID=1000 \
   -v /root/data/docker_data/easyimage/config:/app/web/config \
   -v /root/data/docker_data/easyimage/i:/app/web/i \
   ddsderek/easyimage:latest
 ```
-docker-cli-linux/arm/v6 | linux/arm/v7 | linux/arm64/v8 | linux/s390x | linux/386 | linux/ppc64le
+docker-cli-linux/arm/v7 | linux/arm64/v8 | linux/s390x | linux/ppc64le
 
 ```bash
 docker run -itd \
   --name easyimage \
   -p 8080:80 \
+  -e TZ=Asia/Shanghai \
+  -e PUID=1000 \
+  -e PGID=1000 \
   -v /root/data/docker_data/easyimage/config:/app/web/config \
   -v /root/data/docker_data/easyimage/i:/app/web/i \
   ddsderek/easyimage:latest-other
@@ -38,6 +44,10 @@ services:
     container_name: easyimage
     ports:
       - '8080:80'
+    environment:
+      - TZ=Asia/Shanghai
+      - PUID=1000
+      - PGID=1000
     volumes:
       - '/root/data/docker_data/easyimage/config:/app/web/config'
       - '/root/data/docker_data/easyimage/i:/app/web/i'
@@ -53,6 +63,10 @@ services:
     container_name: easyimage
     ports:
       - '8080:80'
+    environment:
+      - TZ=Asia/Shanghai
+      - PUID=1000
+      - PGID=1000
     volumes:
       - '/root/data/docker_data/easyimage/config:/app/web/config'
       - '/root/data/docker_data/easyimage/i:/app/web/i'
@@ -70,6 +84,9 @@ docker image rm easyimage
 docker run -itd \
   --name easyimage \
   -p 8080:80 \
+  -e TZ=Asia/Shanghai \
+  -e PUID=1000 \
+  -e PGID=1000 \
   -v /root/data/docker_data/easyimage/config:/app/web/config \
   -v /root/data/docker_data/easyimage/i:/app/web/i \
   ddsderek/easyimage:latest
@@ -85,6 +102,9 @@ docker image rm easyimage
 docker run -itd \
   --name easyimage \
   -p 8080:80 \
+  -e TZ=Asia/Shanghai \
+  -e PUID=1000 \
+  -e PGID=1000 \
   -v /root/data/docker_data/easyimage/config:/app/web/config \
   -v /root/data/docker_data/easyimage/i:/app/web/i \
   ddsderek/easyimage:latest-other
@@ -101,6 +121,7 @@ docker exec -it easyimage rm -rf /app/web/install
 
 ## 版本更新
 
+- 2.6.6.8 **正式版** 增加PUID PGID TZ变量
 - 2.6.6.7 **正式版** 增加linux/ppc64le，linux/386镜像
 - 2.6.6.6 **正式版** 增加linux/arm/v6，linux/arm/v7，linux/arm64/v8，linux/s390x镜像
 - 2.6.6.5 **正式版** 分离amd64和arm64镜像
