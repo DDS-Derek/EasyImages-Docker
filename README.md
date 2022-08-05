@@ -53,7 +53,7 @@ services:
       - '/root/data/docker_data/easyimage/i:/app/web/i'
     restart: unless-stopped
 ```
-docker-compose-linux/arm/v6 | linux/arm/v7 | linux/arm64/v8 | linux/s390x | linux/386 | linux/ppc64le
+docker-compose-linux/arm/v7 | linux/arm64/v8 | linux/s390x | linux/ppc64le
 
 ```bash
 version: '3.3'
