@@ -1,4 +1,4 @@
-name: 构建EasyImage镜像-other
+name: 构建EasyImage镜像-amd64
 on:
   workflow_dispatch:
 jobs:
@@ -9,6 +9,12 @@ jobs:
         name: Checkout
         uses: actions/checkout@master
       
+      - name: Set Version
+        id: set-version
+        run: |
+          echo "::set-output name=version::${GITHUB_REF:10}"
+          echo "ReleaseTag=${GITHUB_REF:10}"
+
       - 
         name: Set Up QEMU
         uses: docker/setup-qemu-action@v2
@@ -25,31 +31,31 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - 
-        name: Buildx
+        name: Buildx-amd64
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: Dockerfile-other
+          file: Dockerfile-amd64
           platforms: |
-            linux/arm/v7
-            linux/arm64/v8
-            linux/ppc64le
-            linux/s390x
+            linux/amd64
           push: true
+          build-args: |
+            VERSION=${{ steps.set-version.outputs.version }}
           tags: |
-            ddsderek/easyimage:${{ secrets.VERSION }}-other
+             ${{ secrets.DOCKER_USERNAME }}/easyimage:${{ steps.set-version.outputs.version }}
+             ${{ secrets.DOCKER_USERNAME }}/easyimage:latest
 
       - 
-        name: Buildx
+        name: Buildx-other
         uses: docker/build-push-action@v3
         with:
           context: .
           file: Dockerfile-other
           platforms: |
-            linux/arm/v7
-            linux/arm64/v8
-            linux/ppc64le
-            linux/s390x
+            linux/amd64
           push: true
+          build-args: |
+            VERSION=${{ steps.set-version.outputs.version }}
           tags: |
-            ddsderek/easyimage:latest-other
+             ${{ secrets.DOCKER_USERNAME }}/easyimage:${{ steps.set-version.outputs.version }}-other
+             ${{ secrets.DOCKER_USERNAME }}/easyimage:latest-other
