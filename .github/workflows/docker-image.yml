@@ -1,6 +1,9 @@
 name: 构建EasyImage镜像-amd64
+
 on:
-  workflow_dispatch:
+    release:
+        types: [published]
+
 jobs:
   push:
     runs-on: ubuntu-latest
