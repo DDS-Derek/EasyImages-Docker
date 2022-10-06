@@ -1,4 +1,4 @@
-name: 构建EasyImage镜像-amd64
+name: 构建EasyImage镜像
 
 on:
     release:
