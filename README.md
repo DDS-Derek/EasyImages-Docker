@@ -7,7 +7,7 @@ DockerHub https://hub.docker.com/r/ddsderek/easyimage
 
 ## 部署
 
-docker-cli-amd64
+docker-cli
 
 ``` bash 
 docker run -itd \
@@ -20,21 +20,8 @@ docker run -itd \
   -v /root/data/docker_data/easyimage/i:/app/web/i \
   ddsderek/easyimage:latest
 ```
-docker-cli-linux/arm/v7 | linux/arm64/v8 | linux/s390x | linux/ppc64le
 
-```bash
-docker run -itd \
-  --name easyimage \
-  -p 8080:80 \
-  -e TZ=Asia/Shanghai \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -v /root/data/docker_data/easyimage/config:/app/web/config \
-  -v /root/data/docker_data/easyimage/i:/app/web/i \
-  ddsderek/easyimage:latest-other
-```
-
-docker-compose-amd64
+docker-compose
 
 ```bash
 version: '3.3'
@@ -53,29 +40,10 @@ services:
       - '/root/data/docker_data/easyimage/i:/app/web/i'
     restart: unless-stopped
 ```
-docker-compose-linux/arm/v7 | linux/arm64/v8 | linux/s390x | linux/ppc64le
-
-```bash
-version: '3.3'
-services:
-  easyimage:
-    image: ddsderek/easyimage:latest-other
-    container_name: easyimage
-    ports:
-      - '8080:80'
-    environment:
-      - TZ=Asia/Shanghai
-      - PUID=1000
-      - PGID=1000
-    volumes:
-      - '/root/data/docker_data/easyimage/config:/app/web/config'
-      - '/root/data/docker_data/easyimage/i:/app/web/i'
-    restart: unless-stopped
-```
 
 ## 更新
 
-docker-cli-amd64
+docker-cli
 
 ```
 docker stop easyimage
@@ -93,25 +61,7 @@ docker run -itd \
 docker exec -it easyimage rm -rf /app/web/install
 ```
 
-docker-cli-linux/arm/v6 | linux/arm/v7 | linux/arm64/v8 | linux/s390x | linux/386 | linux/ppc64le
-
-```
-docker stop easyimage
-docker rm easyimage
-docker image rm easyimage
-docker run -itd \
-  --name easyimage \
-  -p 8080:80 \
-  -e TZ=Asia/Shanghai \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -v /root/data/docker_data/easyimage/config:/app/web/config \
-  -v /root/data/docker_data/easyimage/i:/app/web/i \
-  ddsderek/easyimage:latest-other
-docker exec -it easyimage rm -rf /app/web/install
-```
-
-docker-compose(通用)
+docker-compose
 
 ```
 docker-compose pull
