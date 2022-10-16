@@ -2,7 +2,8 @@
 
 ## 项目介绍
 https://github.com/icret/EasyImages2.0
-## 下载
+
+## DockerHub
 DockerHub https://hub.docker.com/r/ddsderek/easyimage
 
 ## 部署
