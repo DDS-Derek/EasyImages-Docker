@@ -1,10 +1,9 @@
-# 本项目是icret/EasyImages2.0的分支项目，Docker版本的EasyImage
+# EasyImage Docker
 
 ## 项目介绍
 https://github.com/icret/EasyImages2.0
 
-## DockerHub
-DockerHub https://hub.docker.com/r/ddsderek/easyimage
+DockerHub: https://hub.docker.com/r/ddsderek/easyimage
 
 ## 部署
 
@@ -24,7 +23,7 @@ docker run -itd \
 
 docker-compose
 
-```bash
+```yaml
 version: '3.3'
 services:
   easyimage:
@@ -46,7 +45,7 @@ services:
 
 docker-cli
 
-```
+```bash
 docker stop easyimage
 docker rm easyimage
 docker image rm easyimage
@@ -64,7 +63,7 @@ docker exec -it easyimage rm -rf /app/web/install
 
 docker-compose
 
-```
+```bash
 docker-compose pull
 docker-compose up -d
 docker exec -it easyimage rm -rf /app/web/install
@@ -72,7 +71,7 @@ docker exec -it easyimage rm -rf /app/web/install
 
 ## 版本更新
 
-- 2.6.7 **正式版** 同步更新2.6.7
+- 2.6.7 **正式版** 同步更新2.6.7  统一镜像
 - 2.6.6.8 **正式版** 增加PUID PGID TZ变量
 - 2.6.6.7 **正式版** 增加linux/ppc64le，linux/386镜像
 - 2.6.6.6 **正式版** 增加linux/arm/v6，linux/arm/v7，linux/arm64/v8，linux/s390x镜像
@@ -89,6 +88,6 @@ docker exec -it easyimage rm -rf /app/web/install
 
 ## 感谢
 
-项目作者:https://github.com/icret/EasyImages2.0
+项目作者: https://github.com/icret/EasyImages2.0
 
-dockerfile环境配置参考:https://hub.docker.com/r/taobig/nginx-php74
+dockerfile环境配置参考: https://hub.docker.com/r/taobig/nginx-php74
