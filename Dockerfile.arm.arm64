@@ -1,6 +1,6 @@
 FROM ddsderek/foundations:Ubuntu20.04-nginx1.18.0-php7.4-apt
 
-ENV TAG=2.6.8
+ENV TAG=2.6.9
 
 ADD ./shell /shell
 
