@@ -71,6 +71,7 @@ docker exec -it easyimage rm -rf /app/web/install
 
 ## 版本更新
 
+- v2.6.9 **正式版** 同步更新v2.6.9
 - v2.6.8 **正式版** 同步更新v2.6.8
 - 2.6.7 **正式版** 同步更新2.6.7  统一镜像
 - 2.6.6.8 **正式版** 增加PUID PGID TZ变量
