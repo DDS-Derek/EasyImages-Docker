@@ -7,7 +7,7 @@ WORKDIR /opt
 RUN apt-get update -y && \
     apt-get install -y git && \
     git clone https://github.com/icret/EasyImages2.0.git /opt/web && \
-    wget https://github.com/lionsoul2014/ip2region/raw/master/data/ip2region.xdb -O /opt/web/application/ip2region/ip2region.xdb && \
+    wget --no-check-certificate https://github.com/lionsoul2014/ip2region/raw/master/data/ip2region.xdb -O /opt/web/application/ip2region/ip2region.xdb && \
     rm -rf /opt/web/.git /opt/web/.github && \
     cp -r /opt/web /app && \
     cp -r /opt/web/config / && \
