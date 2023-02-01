@@ -58,7 +58,6 @@ docker run -itd \
   -v /root/data/docker_data/easyimage/config:/app/web/config \
   -v /root/data/docker_data/easyimage/i:/app/web/i \
   ddsderek/easyimage:latest
-docker exec -it easyimage rm -rf /app/web/install
 ```
 
 docker-compose
@@ -66,7 +65,6 @@ docker-compose
 ```bash
 docker-compose pull
 docker-compose up -d
-docker exec -it easyimage rm -rf /app/web/install
 ```
 
 ## 版本更新

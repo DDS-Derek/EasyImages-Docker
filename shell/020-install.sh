@@ -77,3 +77,9 @@ if [ ! -f "/app/web/i/index.html" ]; then
 else
     echo "index.html文件存在"
 fi
+
+if [ -f "/app/web/config/install.lock" ]; then
+    if [ -d "/app/web/install" ]; then
+        rm -rf /app/web/install
+    fi
+fi
