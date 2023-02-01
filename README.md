@@ -69,6 +69,7 @@ docker-compose up -d
 
 ## 版本更新
 
+- v2.7.0 **正式版** Synchronous update v2.7.0 & archive & Optimize log output & configuration file creation & Optimize installation judgment
 - v2.6.9 **正式版** 同步更新v2.6.9
 - v2.6.8 **正式版** 同步更新v2.6.8
 - 2.6.7 **正式版** 同步更新2.6.7  统一镜像
