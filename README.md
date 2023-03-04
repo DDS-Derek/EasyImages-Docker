@@ -69,6 +69,7 @@ docker-compose up -d
 
 ## 版本更新
 
+- v2.7.6-r1 **正式版** 修复manag.php文件不存在的bug。
 - v2.7.6 **正式版** 同步更新v2.7.6
 - v2.7.5 **正式版** 同步更新v2.7.5
 - v2.7.0 **正式版** Synchronous update v2.7.0 & archive & Optimize log output & configuration file creation & Optimize installation judgment
