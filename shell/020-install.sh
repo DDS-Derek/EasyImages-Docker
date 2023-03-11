@@ -94,26 +94,26 @@ else
     fi
 fi
 
-if [ ! -f "/app/web/i/manag.php" ]; then
-    echo -e "\033[36m manag.php文件不存在,正在创建... \033[0m"
-    cp /i/manag.php /app/web/i/manag.php
-    if [ -f "/app/web/i/manag.php" ]; then
-        echo "manag.php文件创建成功"
-    else
-        echo "manag.php文件创建失败"
-        exit 1
-    fi
-else
-    echo "更新manag.php文件"
-    rm -rf /app/web/i/manag.php
-    cp /i/manag.php /app/web/i/manag.php
-    if [ -f "/app/web/i/manag.php" ]; then
-        echo "manag.php文件创建成功"
-    else
-        echo "manag.php文件创建失败"
-        exit 1
-    fi
-fi
+# if [ ! -f "/app/web/i/manag.php" ]; then
+#     echo -e "\033[36m manag.php文件不存在,正在创建... \033[0m"
+#     cp /i/manag.php /app/web/i/manag.php
+#     if [ -f "/app/web/i/manag.php" ]; then
+#         echo "manag.php文件创建成功"
+#     else
+#         echo "manag.php文件创建失败"
+#         exit 1
+#     fi
+# else
+#     echo "更新manag.php文件"
+#     rm -rf /app/web/i/manag.php
+#     cp /i/manag.php /app/web/i/manag.php
+#     if [ -f "/app/web/i/manag.php" ]; then
+#         echo "manag.php文件创建成功"
+#     else
+#         echo "manag.php文件创建失败"
+#         exit 1
+#     fi
+# fi
 
 if [ -f "/app/web/config/install.lock" ]; then
     if [ -d "/app/web/install" ]; then
