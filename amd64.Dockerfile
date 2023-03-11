@@ -7,7 +7,7 @@ WORKDIR /opt
 RUN wget --no-check-certificate https://github.com/icret/EasyImages2.0/archive/refs/tags/${TAG}.zip && \
     unzip ${TAG}.zip && \
     mv /opt/EasyImages2.0-${TAG} /opt/web && \
-    wget --no-check-certificate https://github.com/lionsoul2014/ip2region/raw/master/data/ip2region.xdb -O /opt/web/application/ip2region/ip2region.xdb && \
+    wget --no-check-certificate https://github.com/lionsoul2014/ip2region/raw/master/data/ip2region.xdb -O /opt/web/app/ip2region/ip2region.xdb && \
     cp -r /opt/web /app && \
     cp -r /opt/web/config / && \
     cp -r /opt/web/i / && \
