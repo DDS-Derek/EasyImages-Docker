@@ -1,8 +1,6 @@
 FROM ddsderek/foundations:Ubuntu20.04-nginx1.18.0-php7.4-apt
 
-ENV TAG=2.7.7
-
-ADD ./shell /shell
+ENV TAG=2.7.9
 
 WORKDIR /opt
 
@@ -16,7 +14,8 @@ RUN wget --no-check-certificate https://github.com/icret/EasyImages2.0/archive/r
     rm -rf /opt && \
     apt-get remove -y wget zip && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    chmod -R 755 /shell
+    rm -rf /var/lib/apt/lists/*
+
+COPY --chmod=755 ./shell /shell
 
 WORKDIR /app/web
