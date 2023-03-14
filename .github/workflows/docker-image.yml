@@ -36,7 +36,7 @@ jobs:
 
       - 
         name: Buildx-amd64
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: amd64.Dockerfile
@@ -79,7 +79,7 @@ jobs:
 
       - 
         name: Buildx-arm64
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: arm.arm64.Dockerfile
@@ -122,7 +122,7 @@ jobs:
 
       - 
         name: Buildx-arm
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: arm.arm64.Dockerfile
