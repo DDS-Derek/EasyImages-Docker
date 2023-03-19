@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 AS build-env
+FROM ubuntu:22.04 AS build-env
 
 #http://nginx.org/en/download.html
 ENV NGINX_VERSION 1.16.1
@@ -118,7 +118,7 @@ RUN rm -rf /usr/local/php/include
 
 
 
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 COPY --from=build-env /usr/local/nginx /usr/local/nginx
 COPY --from=build-env /usr/local/php /usr/local/php
 
