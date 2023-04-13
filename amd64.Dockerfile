@@ -1,6 +1,6 @@
 FROM ddsderek/foundations:Ubuntu20.04-nginx1.16.1-php7.4.20
 
-ENV TAG=2.8.0
+ENV TAG=2.8.1
 
 WORKDIR /opt
 
