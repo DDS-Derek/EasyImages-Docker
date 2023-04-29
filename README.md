@@ -97,5 +97,3 @@ docker-compose up -d
 ## 感谢
 
 项目作者: https://github.com/icret/EasyImages2.0
-
-dockerfile环境配置参考: https://hub.docker.com/r/taobig/nginx-php74

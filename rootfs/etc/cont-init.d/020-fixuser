@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+function 020_fixuser {
+
+    groupmod -o -g "${PGID}" www-data
+    usermod -o -u "${PUID}" www-data
+
+    chown www-data:www-data -R /app/web
+    chmod 755 -R /app/web
+
+}
+
+020_fixuser 2>&1 | sed "s#^#cont-init: info: $(realpath $0): &#g"

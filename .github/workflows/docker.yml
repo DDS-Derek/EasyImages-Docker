@@ -1,0 +1,84 @@
+name: Build EasyImage image
+
+on:
+    release:
+        types: [published]
+
+jobs:
+  job1:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Checkout
+        uses: actions/checkout@master
+      
+      - 
+        name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ secrets.DOCKER_USERNAME }}/easyimage
+
+      - 
+        name: Set Version
+        id: set-version
+        run: |
+          VERSION=$(echo ${GITHUB_REF:10} | cut -d'-' -f1 | sed 's/^v//')
+          echo "EASYIMAGES_VERSION=${VERSION}" >> $GITHUB_OUTPUT
+
+      - 
+        name: Set Up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - 
+        name: Set Up Buildx
+        uses: docker/setup-buildx-action@v2
+        
+      - 
+        name: Login DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - 
+        name: Build
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: Dockerfile
+          platforms: |
+            linux/amd64
+            linux/arm64
+            linux/arm/v7
+          push: true
+          build-args: |
+            EASYIMAGES_VERSION=${{ steps.set-version.outputs.EASYIMAGES_VERSION }}
+          labels: ${{ steps.meta.outputs.labels }}
+          tags: |
+             ${{ secrets.DOCKER_USERNAME }}/easyimage:${{ steps.meta.outputs.version }}
+             ${{ secrets.DOCKER_USERNAME }}/easyimage:latest
+
+  update:
+    needs: [build]
+    name: Update dockerHub docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: ${{ secrets.DOCKER_USERNAME }}/easyimage
+          short-description: Easyimages Image
+          readme-filepath: ./README.md
