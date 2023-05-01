@@ -16,6 +16,7 @@ docker run -itd \
   -e TZ=Asia/Shanghai \
   -e PUID=1000 \
   -e PGID=1000 \
+  -e DEBUG=false \
   -v /root/data/docker_data/easyimage/config:/app/web/config \
   -v /root/data/docker_data/easyimage/i:/app/web/i \
   ddsderek/easyimage:latest
@@ -35,6 +36,7 @@ services:
       - TZ=Asia/Shanghai
       - PUID=1000
       - PGID=1000
+      - DEBUG=false
     volumes:
       - '/root/data/docker_data/easyimage/config:/app/web/config'
       - '/root/data/docker_data/easyimage/i:/app/web/i'
@@ -55,6 +57,7 @@ docker run -itd \
   -e TZ=Asia/Shanghai \
   -e PUID=1000 \
   -e PGID=1000 \
+  -e DEBUG=false \
   -v /root/data/docker_data/easyimage/config:/app/web/config \
   -v /root/data/docker_data/easyimage/i:/app/web/i \
   ddsderek/easyimage:latest
@@ -69,6 +72,7 @@ docker-compose up -d
 
 ## 更新日志
 
+- v2.8.1-r3 **正式版** 添加 Debug 模式
 - v2.8.1-r1 **正式版** 重写Dokcer镜像，开启Opcache
 - v2.8.1 **正式版** 同步更新v2.8.1
 - v2.8.0 **正式版** 同步更新v2.8.0
