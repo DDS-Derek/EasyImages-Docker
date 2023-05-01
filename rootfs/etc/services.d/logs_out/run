@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+if [[ "${DEBUG}" == true ]]; then
+    LOG_OUT_COMMAND="tail -f /logs/*.log"
+else
+    LOG_OUT_COMMAND="tail -f /dev/null"
+fi
+
+exec s6-setuidgid root \
+    ${LOG_OUT_COMMAND}

@@ -7,6 +7,7 @@ ENV S6_SERVICES_GRACETIME=30000 \
     HOME="/root" \
     TERM="xterm" \
     PATH=${PATH}:/command \
+    DEBUG=false \
     TZ="Asia/Shanghai" \
     PUID=0 \
     PGID=0
@@ -57,11 +58,18 @@ RUN set -ex && \
     sed -i "s#;opcache.revalidate_freq=2#opcache.revalidate_freq=60#g" /etc/php/7.4/fpm/php.ini /etc/php/7.4/cli/php.ini && \
     sed -i "s#;opcache.validate_timestamps=1#opcache.validate_timestamps=0#g" /etc/php/7.4/fpm/php.ini /etc/php/7.4/cli/php.ini && \
     sed -i "s#;opcache.lockfile_path=/tmp#opcache.lockfile_path=/tmp#g" /etc/php/7.4/fpm/php.ini /etc/php/7.4/cli/php.ini && \
+    # Set php pid
     mkdir /run/php && \
+    # Set user
     usermod www-data --home /app/web && \
+    # Set logs
+    sed -i "s#;error_log = php_errors.log#error_log = /logs/php_errors.log#g" /etc/php/7.4/fpm/php.ini /etc/php/7.4/cli/php.ini && \
     mkdir /logs && \
-    #ln -sf /var/log/nginx/access.log /logs/nginx_access.log && \
-    ln -sf /var/log/nginx/error.log /logs/nginx_error.log && \
+    touch /logs/nginx_access.log && \
+    touch /logs/nginx_error.log && \
+    touch /logs/php7.4-fpm.log && \
+    touch /logs/php_errors.log && \
+    # Clear
     apt-get autoremove -y && \
     apt-get clean && \
     rm -rf \

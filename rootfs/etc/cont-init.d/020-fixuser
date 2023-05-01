@@ -6,7 +6,7 @@ function 020_fixuser {
     groupmod -o -g "${PGID}" www-data
     usermod -o -u "${PUID}" www-data
 
-    chown www-data:www-data -R /app/web
+    chown www-data:www-data -R /app/web /logs
     chmod 755 -R /app/web
 
 }
