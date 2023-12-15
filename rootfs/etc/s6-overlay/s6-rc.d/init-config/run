@@ -38,3 +38,8 @@ if [ -f "/app/web/config/install.lock" ]; then
         rm -rf /app/web/install
     fi
 fi
+
+if [ ! -d "/app/web/application" ]; then
+    ln -sf /app/web/app /app/web/application
+    echo "Soft link /app/web/app --> /app/web/application"
+fi
