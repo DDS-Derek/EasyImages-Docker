@@ -72,6 +72,7 @@ docker-compose up -d
 
 ## 更新日志
 
+- v2.8.4 **正式版** 同步更新v2.8.4
 - v2.8.3-r3 **正式版** Nginx 监听443端口
 - v2.8.3-r1 **正式版** Update s6-overlay config file to v3
 - v2.8.1-r3 **正式版** 添加 Debug 模式
